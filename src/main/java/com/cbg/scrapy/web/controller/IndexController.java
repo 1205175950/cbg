@@ -1,4 +1,4 @@
-package com.cbg.scrapy.controller;
+package com.cbg.scrapy.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

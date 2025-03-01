@@ -1,0 +1,19 @@
+create table Task_Info (
+    `id` bigint AUTO_INCREMENT PRIMARY KEY COMMENT '任务id',
+    `url` VARCHAR(512) NOT NULL COLLATE utf8mb4_unicode_ci COMMENT '商品链接',
+    `role_name` VARCHAR(100) COLLATE utf8mb4_unicode_ci COMMENT '角色名',
+    `sales_price` DECIMAL  COMMENT '卖家摆价',
+    `user_first_counter_price` DECIMAL COMMENT '用户首次还价价格',
+    `user_first_counter_time` DATETIME COMMENT '用户首次还价时间',
+    `user_latest_follow_up_price` DECIMAL COMMENT '用户最新跟进价格',
+    `current_buyer_highest_counter_price` DECIMAL COMMENT '当前所有买家的最高还价价格',
+    `current_buyer_highest_reject_price` DECIMAL COMMENT '当前所有买家的最高拒绝价格',
+    `operate_status` INT(10) COMMENT '操作状态',
+    `user_comment` VARCHAR(256) COMMENT '用户备注',
+    `highest_reject_time` DATETIME COMMENT '用户作为最高价格被买家拒绝时的时间',
+    `add_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `md5` VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '商品链接md5'
+    PRIMARY KEY (`id`),
+    KEY `idx_add_time`(`add_time`)
+);
