@@ -11,11 +11,6 @@ import java.math.BigDecimal;
 public class TaskAddVo implements Serializable {
 
         /**
-         * 任务id
-         */
-        private Long id;
-
-        /**
          * 商品连接
          */
         @NotBlank(message = "任务链接不能为空")

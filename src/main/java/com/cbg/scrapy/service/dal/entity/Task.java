@@ -38,7 +38,7 @@ public class Task {
      *
      * @mbg.generated Sat Mar 01 17:09:18 CST 2025
      */
-    private Long salesPrice;
+    private BigDecimal salesPrice;
 
     /**
      *
@@ -219,7 +219,7 @@ public class Task {
      *
      * @mbg.generated Sat Mar 01 17:09:18 CST 2025
      */
-    public Long getSalesPrice() {
+    public BigDecimal getSalesPrice() {
         return salesPrice;
     }
 
@@ -231,7 +231,7 @@ public class Task {
      *
      * @mbg.generated Sat Mar 01 17:09:18 CST 2025
      */
-    public void setSalesPrice(Long salesPrice) {
+    public void setSalesPrice(BigDecimal salesPrice) {
         this.salesPrice = salesPrice;
     }
 

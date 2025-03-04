@@ -16,11 +16,12 @@
 
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.cbg.scrapy.service.dal.mapper" targetProject="src/main/java"/>
 
-        <table tableName="task_info" domainObjectName="Task">
-            <columnOverride column="current_buyer_highest_counter_price" javaType="java.math.BigDecimal" />
-            <columnOverride column="current_buyer_highest_reject_price" javaType="java.math.BigDecimal" />
-            <columnOverride column="user_first_counter_price" javaType="java.math.BigDecimal" />
-            <columnOverride column="user_latest_follow_up_price" javaType="java.math.BigDecimal" />
-        </table>
+<!--        <table tableName="task_info" domainObjectName="Task">-->
+<!--            <columnOverride column="current_buyer_highest_counter_price" javaType="java.math.BigDecimal" />-->
+<!--            <columnOverride column="current_buyer_highest_reject_price" javaType="java.math.BigDecimal" />-->
+<!--            <columnOverride column="user_first_counter_price" javaType="java.math.BigDecimal" />-->
+<!--            <columnOverride column="user_latest_follow_up_price" javaType="java.math.BigDecimal" />-->
+<!--        </table>-->
+        <table tableName="scrapy_account_info" domainObjectName="ScrapyAccount"/>
     </context>
 </generatorConfiguration>

@@ -1,11 +1,14 @@
 package com.cbg.scrapy.service.util;
 
 import com.cbg.scrapy.service.dal.entity.Task;
+import com.cbg.scrapy.web.enu.OperateStatus;
 import com.cbg.scrapy.web.vo.business.TaskAddVo;
+import com.cbg.scrapy.web.vo.business.TaskDetailVo;
 import org.springframework.beans.BeanUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.List;
 
 public class TaskUtil {
 
@@ -23,6 +26,18 @@ public class TaskUtil {
         task.setUpdateTime(new Date());
         task.setMd5(md5);
         return task;
+    }
+
+    /**
+     * 任务详情entity转详情vo
+     * @param task 任务详情entity
+     * @return     任务详情vo
+     */
+    public static TaskDetailVo convertDetailVo(Task task) {
+        TaskDetailVo taskDetailVo = new TaskDetailVo();
+        BeanUtils.copyProperties(task, taskDetailVo);
+        taskDetailVo.setOperateStatusDesc(OperateStatus.getDesc(task.getOperateStatus()));
+        return taskDetailVo;
     }
 
     /**

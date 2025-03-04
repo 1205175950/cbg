@@ -1,4 +1,4 @@
-create table Task_Info (
+create table task_info (
     `id` bigint AUTO_INCREMENT PRIMARY KEY COMMENT '任务id',
     `url` VARCHAR(512) NOT NULL COLLATE utf8mb4_unicode_ci COMMENT '商品链接',
     `role_name` VARCHAR(100) COLLATE utf8mb4_unicode_ci COMMENT '角色名',
@@ -12,8 +12,18 @@ create table Task_Info (
     `user_comment` VARCHAR(256) COMMENT '用户备注',
     `highest_reject_time` DATETIME COMMENT '用户作为最高价格被买家拒绝时的时间',
     `add_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `md5` VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '商品链接md5'
-    PRIMARY KEY (`id`),
+    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    `md5` VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '商品链接md5',
     KEY `idx_add_time`(`add_time`)
 );
+
+create table scrapy_account_info (
+    `id` bigint AUTO_INCREMENT PRIMARY KEY COMMENT '任务id',
+    `account` VARCHAR(128) NOT NULL COLLATE utf8mb4_unicode_ci COMMENT '账户名',
+    `password` VARCHAR(128) COLLATE utf8mb4_unicode_ci COMMENT '密码',
+    `status` int(10)  COMMENT '有效状态',
+    `add_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+    KEY `idx_add_time`(`add_time`)
+);
+
