@@ -73,4 +73,17 @@ public class AccountDao {
         scrapyAccount.setUpdateTime(new Date());
         scrapyAccountMapper.updateByPrimaryKey(scrapyAccount);
     }
+
+    /**
+     * 更新账号信息
+     */
+    public void updateAccountStatus(String userName, Integer status) {
+        ScrapyAccountExample example = new ScrapyAccountExample();
+        ScrapyAccountExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountEqualTo(userName);
+        ScrapyAccount updateAccount = new ScrapyAccount();
+        updateAccount.setStatus(status);
+        updateAccount.setUpdateTime(new Date());
+        scrapyAccountMapper.updateByExampleSelective(updateAccount, example);
+    }
 }

@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.cbg.scrapy.service.dto.EquipParseDto;
 import com.cbg.scrapy.service.dto.RequestParseDto;
 import com.cbg.scrapy.service.dto.ResponseParseDto;
+import com.cbg.scrapy.service.dto.WebDriverWrapperDto;
 import com.cbg.scrapy.service.exception.CbgBizException;
+import jakarta.annotation.Resource;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -26,8 +28,10 @@ public class CbgScrapyService {
 
     private static final int OK_STATUS = 200;
     private static final HttpClient client = HttpClient.newHttpClient();
-
     private static URI TARGET_URL = null;
+
+    @Resource
+    private WebDriverManager webDriverManager;
 
     static {
         try {
@@ -95,7 +99,10 @@ public class CbgScrapyService {
      * @param password 尝试登录的密码
      */
     public boolean trySignIn(String userName, String password) {
-        // TODO
+        WebDriverWrapperDto result = webDriverManager.tryLogin(userName, password);
+        if (null != result.getErrMsg()) {
+            CbgBizException.fly(result.getErrMsg());
+        }
         return true;
     }
 

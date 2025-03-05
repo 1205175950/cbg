@@ -6,7 +6,6 @@ import com.cbg.scrapy.service.exception.CbgBizException;
 import com.cbg.scrapy.service.scrapy.CbgScrapyService;
 import com.cbg.scrapy.web.vo.business.AccountVo;
 import jakarta.annotation.Resource;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.stereotype.Service;
 
 @Service

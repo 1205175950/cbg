@@ -29,6 +29,9 @@ public class CbgScrapyServiceTest extends AbstractBastTest {
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--user-agent=\"Android\"");
         options.setBinary("C:\\Users\\Administrator\\Desktop\\chrome-win64\\chrome.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Administrator\\Downloads\\jdk11\\bin\\chromedriver.exe");
+        // System.setProperty("webdriver.chrome.logfile", "C:\\Users\\Administrator\\Downloads\\jdk11\\bin\\chromedriver.log");
+        //System.setProperty("webdriver.chrome.verboseLogging", "true");
         WebDriver webDriver = new ChromeDriver(options);
         // 启动需要打开的网页
         webDriver.get("https://xyq.cbg.163.com/equip?s=133&eid=202503021800113-133-ISLOPWNMVBGA&o");
